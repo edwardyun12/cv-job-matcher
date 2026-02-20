@@ -1,12 +1,12 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+async def basic_index():
+    return FileResponse('templates/index.html')
 
-@app.get("/hello")
-async def helloFunction():
-    return {"message": "Eric Hello!"}
+@app.get("/upload")
+async def uploadFunction():
+    return {"message": "Welcome"}

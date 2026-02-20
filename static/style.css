@@ -1,0 +1,164 @@
+
+
+/* 1. 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f7f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden; /* 배경 스크롤 방지 */
+}
+
+.main-container {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    color: #202124;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #5f6368;
+    margin-bottom: 40px;
+}
+
+/* 2. 무한 컨베이어 벨트 설정 */
+.conveyor-container {
+    width: 100%;
+    overflow: hidden; /* 벨트 밖으로 나가는 카드 숨김 */
+    background: white;
+    padding: 60px 0;
+    margin-bottom: 50px;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+}
+
+.conveyor-belt {
+    display: flex;
+    animation: scroll 25s linear infinite; /* 일정한 속도로 무한 이동 */
+}
+
+/* 마우스 올리면 벨트 멈춤 */
+.conveyor-container:hover .conveyor-belt {
+    animation-play-state: paused;
+}
+
+/* 3. CV 카드 디자인 */
+.cv-card {
+    position: relative;
+    min-width: 280px;
+    height: 130px;
+    background: #ffffff;
+    margin: 0 20px;
+    border-radius: 12px;
+    border: 1px solid #dcdcdc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* 마우스 올렸을 때 카드 강조 */
+.cv-card:hover {
+    transform: scale(1.1);
+    border-color: #1a73e8;
+    box-shadow: 0 10px 25px rgba(26, 115, 232, 0.2);
+}
+
+.cv-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2; /* 스캔라인보다 위에 보이게 함 */
+}
+
+.icon { font-size: 2rem; }
+.name { font-size: 0.9rem; color: #3c4043; font-weight: 500; }
+
+/* 4. AI 스캔 애니메이션 (핵심) */
+.scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, rgba(26, 115, 232, 0.4), #1a73e8, transparent);
+    opacity: 0;
+    z-index: 1;
+}
+
+.cv-card:hover .scan-line {
+    opacity: 1;
+    animation: scanMove 1.5s linear infinite;
+}
+
+/* 5. AI 태그 효과 */
+.ai-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+    z-index: 2;
+}
+
+.cv-card:hover .ai-tags {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ai-tags span {
+    background: #e8f0fe;
+    color: #1a73e8;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* 6. 업로드 버튼 스타일 */
+.upload-btn {
+    padding: 16px 32px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background-color: #1557b0;
+    box-shadow: 0 6px 12px rgba(26, 115, 232, 0.3);
+}
+
+/* 애니메이션 Keyframes */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* 내용이 두 번 반복되므로 절반 지점에서 리셋 */
+}
+
+@keyframes scanMove {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}

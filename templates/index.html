@@ -2,12 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV-JD Matcher</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Welcome to CV-JD Matcher!</h1>
-    <p>This is a simple portfolio web page using FastAPI + AI.</p>
-    <a href="/upload"><button>Upload Your CV</button></a>
+    <div class="main-container">
+        <h1>Welcome to CV-JD Matcher!</h1>
+        <p>This is a simple portfolio web page using FastAPI + AI.</p>
+
+        <div class="conveyor-container">
+            <div class="conveyor-belt">
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Senior_Backend.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>Python</span><span>FastAPI</span><span>98% Match to 154 jobs</span></div>
+                </div>
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Data_Scientist.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>PyTorch</span><span>NLP</span><span>85% Match to 74 jobs</span></div>
+                </div>
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Frontend_Dev.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>React</span><span>JS</span><span>92% Match to 124 jobs</span></div>
+                </div>
+
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Senior_Backend.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>Python</span><span>FastAPI</span><span>98% Match to 84 jobs</span></div>
+                </div>
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Data_Scientist.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>PyTorch</span><span>NLP</span><span>54% Match to 10 jobs</span></div>
+                </div>
+                <div class="cv-card">
+                    <div class="cv-content"><span class="icon">📄</span><span class="name"> Frontend_Dev.pdf</span></div>
+                    <div class="scan-line"></div>
+                    <div class="ai-tags"><span>React</span><span>JS</span><span>92% Match to 125 jobs</span></div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/upload"><button class="upload-btn">Upload Your CV</button></a>
+    </div>
 </body>
 </html>

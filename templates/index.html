@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" id="home-section" >
         <h1>Welcome to CV-JD Matcher!</h1>
         <p>This is a simple portfolio web page using FastAPI + AI.</p>
 
-        <div class="conveyor-container ">
+        <div class="conveyor-container">
             <div class="conveyor-belt">
                 <div class="cv-card">
                     <div class="cv-content"><span class="icon">📄</span><span class="name"> Senior_Backend.pdf</span></div>
@@ -47,7 +47,22 @@
             </div>
         </div>
 
-        <a href="/upload"><button class="upload-btn">Upload Your CV</button></a>
+        <button onclick="showUploadSection()" class="upload-btn">Upload Your CV</button>
     </div>
+    <div id="upload-section" style="display: none; text-align: center; padding: 50px;">
+    <h2>CV 분석</h2>
+    
+    <textarea id="cv-text" placeholder="여기에 경력 사항을 간단히 적거나..." style="width: 80%; height: 100px; margin-bottom: 20px; padding: 10px; border-radius: 10px; border: 1px solid #ddd;"></textarea>
+    
+    <p>또는</p>
+
+    <input type="file" id="cv-file" style="margin: 20px 0;">
+    
+    <br>
+    
+    <button class="upload-btn" onclick="submitData()">분석 시작</button>
+    <button onclick="showHomeSection()" style="background:none; border:none; cursor:pointer; color:gray; display:block; margin: 20px auto;">돌아가기</button>
+</div>
+<script src="/static/script.js"></script>
 </body>
 </html>

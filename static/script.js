@@ -15,14 +15,15 @@ function d() {
 async function submitData() {
     document.getElementById('cv-text').value
     const response = await fetch('/upload', {
-    method: 'POST', // 1. 보내는 방식 지정
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json' // 2. "나 JSON 보낼 거야"라고 알림
+      'Content-Type': 'application/json' 
     },
-    body: JSON.stringify({ name: '새 아이템', price: 1000 }) // 3. 실제 데이터(문자열로 변환)
-  });
-
+    body: JSON.stringify({ name: '새 아이템', price: 1000 })
+}); 
   const result = await response.json();
-  console.log(result)
+  console.log(result.message);
+
+
     // 일단 File submit은 보류 document.getElementById(cv-file).value
 }

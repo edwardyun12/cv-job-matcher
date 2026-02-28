@@ -10,5 +10,6 @@ async def basic_index():
     return FileResponse('templates/index.html')
 
 @app.post("/upload")
-async def uploadFunction(item):
-    return {"message": "성공"};
+async def uploadFunction(item: Request):
+    data = await item.json()
+    return {"message": data};

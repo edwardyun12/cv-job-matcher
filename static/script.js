@@ -1,9 +1,28 @@
 function showUploadSection() {
-        document.getElementById('home-section').style.display = 'none';
-        document.getElementById('upload-section').style.display = 'block';
-    }
+    document.getElementById('home-section').style.display = 'none';
+    document.getElementById('upload-section').style.display = 'block';
+}
 
-    function showHomeSection() {
-        document.getElementById('upload-section').style.display = 'none';
-        document.getElementById('home-section').style.display = 'block';
-    }
+function showHomeSection() {
+    document.getElementById('upload-section').style.display = 'none';
+    document.getElementById('home-section').style.display = 'block';
+}
+
+function d() {
+    //Async Function을 사용하여 내용들을 보내고 그걸 서버측으로 전달
+}
+
+async function submitData() {
+    document.getElementById('cv-text').value
+    const response = await fetch('/upload', {
+    method: 'POST', // 1. 보내는 방식 지정
+    headers: {
+      'Content-Type': 'application/json' // 2. "나 JSON 보낼 거야"라고 알림
+    },
+    body: JSON.stringify({ name: '새 아이템', price: 1000 }) // 3. 실제 데이터(문자열로 변환)
+  });
+
+  const result = await response.json();
+  console.log(result)
+    // 일단 File submit은 보류 document.getElementById(cv-file).value
+}

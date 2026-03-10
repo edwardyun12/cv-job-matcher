@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, UploadFile, File, Form
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -10,6 +10,10 @@ async def basic_index():
     return FileResponse('templates/index.html')
 
 @app.post("/upload")
-async def uploadFunction(item: Request):
-    data = await item.json()
-    return {"message": data}
+async def uploadFunction(
+    file: UploadFile = File(...), 
+    text: str = Form(...)
+    ):
+   content = await file.read()
+   print(f"Received file: {file.filename}, size: {len(content)} bytes")
+   return {"message": f"File '{file.filename}' uploaded successfully with text: {text}"}

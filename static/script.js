@@ -8,22 +8,38 @@ function showHomeSection() {
     document.getElementById('home-section').style.display = 'block';
 }
 
-function d() {
-    //Async Function을 사용하여 내용들을 보내고 그걸 서버측으로 전달
+
+async function submitUserFileInput() {
+    alert("Hello!");
+    /** 
+    const fileInput = document.getElementById('cv-file');
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+    });
+    const result = await response.json();
+    console.log(result.message);
+    */
 }
 
-async function submitData() {
-    document.getElementById('cv-text').value
+async function submitUserTextInput() {
+    const userText = document.getElementById('cv-text').value;
     const response = await fetch('/upload', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json' 
     },
-    body: JSON.stringify({ name: '새 아이템', price: 1000 })
+    body: JSON.stringify(userText)
 }); 
   const result = await response.json();
   console.log(result.message);
+}
 
-
-    // 일단 File submit은 보류 document.getElementById(cv-file).value
+async function submitUserInputs() {
+    await submitUserFileInput();
+    await submitUserTextInput();
 }

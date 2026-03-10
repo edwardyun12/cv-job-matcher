@@ -12,4 +12,4 @@ async def basic_index():
 @app.post("/upload")
 async def uploadFunction(item: Request):
     data = await item.json()
-    return {"message": data};
+    return {"message": data}

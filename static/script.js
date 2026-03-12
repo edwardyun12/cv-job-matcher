@@ -9,7 +9,7 @@ function showHomeSection() {
 }
 
 
-async function submitUserUserInput() {
+async function submitUserInput() {
 
     const formData = new FormData();
     const fileInput = document.getElementById('cv-file');

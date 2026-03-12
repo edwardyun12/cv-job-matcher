@@ -12,8 +12,10 @@ async def basic_index():
 @app.post("/upload")
 async def uploadFunction(
     file: UploadFile = File(...), 
-    text: str = Form(...)
+    target_job: str = Form(...)
     ):
+
    content = await file.read()
-   print(f"Received file: {file.filename}, size: {len(content)} bytes")
-   return {"message": f"File '{file.filename}' uploaded successfully with text: {text}"}
+   decoded_content = content.decode('utf-8')
+   #print(f"Received file: {file.filename}, size: {len(content)} bytes")
+   return {"message": f"File content '{decoded_content}' uploaded successfully with target job: {target_job}"}

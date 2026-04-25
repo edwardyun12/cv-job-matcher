@@ -1,2 +1,2 @@
-# cv-job-matcher
-AI-powered job recommendation system tailored for students in the UK including students from aborad
+# HireReadyAI
+AI-powered skill recommendation system that increases employability by identifying technical skill gaps between CVs and JDs through AI-driven analysis.
